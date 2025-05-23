@@ -9,6 +9,10 @@
         <link rel="stylesheet" href="{{ asset('assets/bootstrap/bootstrap.min.css') }}">
     </head>
     <body>
+        <div class="text-center my-5">
+            <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" width="128px">
+        </div>
+
         {{ $slot }}
 
         <script src="{{ asset('assets/bootstrap/bootstrap.bundle.min.js') }}"></script>

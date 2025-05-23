@@ -49,8 +49,15 @@ class FormContact extends Component
             //clear form 
             $this->reset();
 
+            // success message
             $this->success = "Contact create successfully.";
+
+            // create an event
+            $this->dispatch('contactAdded');
+            
         } else {
+
+            // error message
             $this->error = "The contact already exists.";
         }
 
