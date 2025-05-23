@@ -37,7 +37,7 @@
             <button class="btn btn-secondary px-5">Save</button>
         </div>
 
-        @if ($error)
+        {{-- @if ($error)
             <div class="alert alert-danger text-center mt-3"
                 x-data="{ show: true }"
                 x-show="show"
@@ -55,7 +55,20 @@
             >
                 {{ $success }}
             </div>            
-        @endif
+        @endif --}}
             
     </form>
+
+    <script>
+        window.addEventListener('notification', (event) => {
+            let data = event.detail;
+            Swal.fire({
+                title: data.title,
+                icon: data.type,
+                position: data.position,
+                showConfirmButton: false,
+                timer: 2000
+            })
+        })        
+    </script>
 </div>

@@ -17,8 +17,8 @@ class FormContact extends Component
     public $phone;
 
     //error and success messages
-    public $error = "";
-    public $success = "";
+    /* public $error = "";
+    public $success = ""; */
 
     public function newContact() 
     {
@@ -50,15 +50,27 @@ class FormContact extends Component
             $this->reset();
 
             // success message
-            $this->success = "Contact create successfully.";
+            //$this->success = "Contact create successfully.";
 
             // create an event
             $this->dispatch('contactAdded');
+            $this->dispatch(
+                'notification', 
+                type: 'success',
+                title: 'Contact created successfully.',
+                position: 'center'
+            );
             
         } else {
 
             // error message
-            $this->error = "The contact already exists.";
+            //$this->error = "The contact already exists.";
+            $this->dispatch(
+                'notification', 
+                type: 'error',
+                title: 'The contact already exists.',
+                position: 'center'
+            );
         }
 
     }
